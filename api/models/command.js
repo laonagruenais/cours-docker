@@ -44,12 +44,28 @@ const getCommand = (id) => {
   });
 };
 
-const createCommand = async (reqBody) => {
+// const createCommand = async (reqBody) => {
+//   return new Promise((resolve, reject) => {
+//     const sql = "INSERT INTO command(name, status) VALUES (?,?)";
+//     const params = [reqBody.name, reqBody.status];
+//     db.run(sql, params, function (err, result) {
+//       if (err) {
+//         reject(err);
+//       }
+//       resolve(this.lastID);
+//     });
+//   });
+// };
+
+// Create a command
+const createCommand = (command) => {
   return new Promise((resolve, reject) => {
-    const sql = "INSERT INTO command(name, status) VALUES (?,?)";
-    const params = [reqBody.name, reqBody.status];
+    const sql = "INSERT INTO command (name, status) VALUES (?, ?)";
+    const params = [command.name, command.status];
+
     db.run(sql, params, function (err, result) {
       if (err) {
+        console.log(err);
         reject(err);
       }
       resolve(this.lastID);
