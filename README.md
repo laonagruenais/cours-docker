@@ -16,7 +16,7 @@ Lancement de rabbitmq
 
 1. En ligne de commande effectué : $ docker-compose up -d
 
-Lancement du la base de données
+Lancement de l'API
 
 1. En ligne de commande effectué : $ yarn dev
 
