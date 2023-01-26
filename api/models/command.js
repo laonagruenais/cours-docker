@@ -1,6 +1,7 @@
 const sqlite3 = require("sqlite3").verbose();
 const db = new sqlite3.Database("./db/rabbitmq.db");
 
+// Create table command
 const createTable = () => {
   return new Promise((resolve, reject) => {
     db.run(
@@ -20,6 +21,7 @@ const createTable = () => {
   });
 };
 
+// Get all commands
 const getCommands = () => {
   return new Promise((resolve, reject) => {
     db.all("SELECT * FROM command", (err, rows) => {
@@ -32,6 +34,7 @@ const getCommands = () => {
   });
 };
 
+// Get a command
 const getCommand = (id) => {
   return new Promise((resolve, reject) => {
     db.get("SELECT * FROM command WHERE id = ?", id, (err, row) => {
@@ -43,19 +46,6 @@ const getCommand = (id) => {
     });
   });
 };
-
-// const createCommand = async (reqBody) => {
-//   return new Promise((resolve, reject) => {
-//     const sql = "INSERT INTO command(name, status) VALUES (?,?)";
-//     const params = [reqBody.name, reqBody.status];
-//     db.run(sql, params, function (err, result) {
-//       if (err) {
-//         reject(err);
-//       }
-//       resolve(this.lastID);
-//     });
-//   });
-// };
 
 // Create a command
 const createCommand = (command) => {
@@ -73,6 +63,7 @@ const createCommand = (command) => {
   });
 };
 
+// Update a command
 const updateCommand = async (command) => {
   return new Promise((resolve, reject) => {
     const sql = "UPDATE command SET status = ? WHERE id = ?";

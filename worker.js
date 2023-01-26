@@ -9,7 +9,7 @@ const worker = () =>
       ch.assertQueue(q, { durable: true });
       ch.consume(q, async (msg) => {
         const command = JSON.parse(msg.content.toString());
-        command.status = "ok";
+        command.status = "validé";
         try {
           await commandModel.updateCommand(command);
           ch.ack(msg);
