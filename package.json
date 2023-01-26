@@ -1,0 +1,16 @@
+{
+  "name": "cours-docker",
+  "version": "1.0.0",
+  "main": "api/server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "sqlite3": "^5.1.4"
+  }
+}
